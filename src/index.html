@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 class="heading">Прогноз погоды</h1>
+
+    <iframe
+      class="iframe"
+      width="600"
+      height="450"
+      style="border: 0"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+
+    <form name="weather">
+      <input type="text" name="weather" />
+      <button class="button">Найти</button>
+    </form>
+
+    <template class="template">
+      <div class="city">
+        <h2 class="city_heading"></h2>
+        <p class="city_main"></p>
+        <p class="city_temp"></p>
+        <img class="city_img" src="" />
+      </div>
+    </template>
+  </body>
+</html>
