@@ -31,6 +31,11 @@ const getWeather = (e) => {
             : "ed6d814c976b7a0f1d97.png",
       });
 
+
+    //   ed6d814c976b7a0f1d97
+    //   0b43f5c98c23439dcf48
+    //   ed6d814c976b7a0f1d97
+
       weatherForm.append(city);
     });
 
