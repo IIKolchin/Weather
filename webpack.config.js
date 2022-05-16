@@ -48,11 +48,11 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
-    new CopyPlugin({
-      patterns: [
-        { from: "source", to: "dest" },
-        { from: "other", to: "public" },
-      ],
-    }),
+    // new CopyPlugin({
+    //   patterns: [
+    //     { from: "source", to: "dest" },
+    //     { from: "other", to: "public" },
+    //   ],
+    // }),
   ]
 }

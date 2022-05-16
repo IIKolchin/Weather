@@ -84,7 +84,7 @@ navigator.geolocation.getCurrentPosition(function(position) {
               : "ed6d814c976b7a0f1d97.png",
         });
   
-        weatherForm.append(city);
+        weatherForm.after(city);
       });
       iframe.setAttribute(
         "src",
