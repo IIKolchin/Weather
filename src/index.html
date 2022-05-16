@@ -23,15 +23,31 @@
       <input type="text" name="weather" />
       <button class="button">Найти</button>
     </form>
-    <!-- <img src="<%=require('./images/sun.png')%>" class="city_main"> 
+  <!-- <img src="<%=require('./images/sun.png')%>" class="city_main"> 
  <img src="<%=require('./images/cloud.png')%>" class="city_main"> 
-    <img src="<%=require('./images/rainy.png')%>" class="city_main"> -->
-
+    <img src="<%=require('./images/rainy.png')%>" class="city_main">  -->
+    <div class="cityes"></div>
     <template class="template">
       <div class="city">
         <h2 class="city_heading"></h2>
-        <img src="" class="city_main">
-        <p class="city_temp"></p>
+        <div class="city_group">
+        <div class="city_temperature">
+          <img src="" class="city_main" />
+          <p class="city_temp"></p>
+        </div>
+        <div class="city_wind">
+          <p class="city_heading">Скорость ветра</p>
+          <p class="city_wind-speed text"></p>
+        </div>
+        <div class="city_pressure">
+            <p class="city_heading">Давление</p>
+            <p class="city_main-pressure text"></p>
+          </div>
+          <div class="city_humidity">
+            <p class="city_heading">Влажность</p>
+            <p class="city_main-humidity text"></p>
+          </div>
+    </div>
       </div>
     </template>
   </body>

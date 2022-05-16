@@ -5,6 +5,7 @@ import { getCoord, getWeatherRequest } from "../components/api";
 
 const button = document.querySelector(".button");
 const weatherForm = document.forms.weather;
+const cityes = document.querySelector(".cityes");
 const weatherInput = weatherForm.elements.weather;
 const heading = document.querySelector(".heading");
 const iframe = document.querySelector(".iframe");
@@ -13,13 +14,13 @@ let lon;
 
 // heading.append(createMap(lat,lon))
 
-console.log(iframe);
+console.log(cityes);
 
 const getWeather = (e) => {
   e.preventDefault();
   getCoord(weatherInput.value).then((data) => {
     getWeatherRequest(data[0].lat, data[0].lon).then((data) => {
-      console.log(data.weather);
+      console.log(data.name);
       const city = createForecast({
         name: data.name,
         main: Math.floor(data.main.temp - 273) + "°C",
@@ -28,7 +29,12 @@ const getWeather = (e) => {
             ? "ed6d814c976b7a0f1d97.png"
             : data.weather[0].main === "Clear"
             ? "0b43f5c98c23439dcf48.png"
-            : "ed6d814c976b7a0f1d97.png",
+            : data.weather[0].main === "Rain"
+              ? "3a1b47357fbf2a423ff5.png" :
+              "ed6d814c976b7a0f1d97.png",
+              wind: data.wind.speed + " м/c",
+              pressure: data.main.pressure + " ГПа",
+              humidity: data.main.humidity + " %",
       });
 
 
@@ -36,7 +42,7 @@ const getWeather = (e) => {
     //   0b43f5c98c23439dcf48
     //   ed6d814c976b7a0f1d97
 
-      weatherForm.append(city);
+    cityes.prepend(city);
     });
 
     lat = data[0].lat;
@@ -58,10 +64,16 @@ const createForecast = (element) => {
   const temperature = city.querySelector(".city_temp");
   const img = city.querySelector(".city_img");
   const main = city.querySelector(".city_main");
+  const wind = city.querySelector(".city_wind-speed");
+  const pressure = city.querySelector(".city_main-pressure");
+  const humidity = city.querySelector(".city_main-humidity");
 
   heading.textContent = element.name;
   temperature.textContent = element.main;
   main.src = element.weather;
+  wind.textContent = element.wind;
+  pressure.textContent = element.pressure;
+  humidity.textContent = element.humidity;
 
   return city;
 };
@@ -81,10 +93,15 @@ navigator.geolocation.getCurrentPosition(function(position) {
               ? "ed6d814c976b7a0f1d97.png"
               : data.weather[0].main === "Clear"
               ? "0b43f5c98c23439dcf48.png"
-              : "ed6d814c976b7a0f1d97.png",
+              : data.weather[0].main === "Rain"
+              ? "3a1b47357fbf2a423ff5.png" :
+              "ed6d814c976b7a0f1d97.png",
+              wind: data.wind.speed + " м/c",
+              pressure: data.main.pressure + " ГПа",
+              humidity: data.main.humidity + " %",
         });
   
-        weatherForm.after(city);
+        cityes.prepend(city);
       });
       iframe.setAttribute(
         "src",
