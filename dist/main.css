@@ -3,7 +3,21 @@
     height: 100px;
 }
 
-.city_temp {
+.city_heading {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.city_temp, .text {
     font-size: 34px;
+}
+
+.city {
+    border-bottom: 1px solid red;
+}
+
+.city_group {
+    display: flex;
+    justify-content: space-around;
 }
 
